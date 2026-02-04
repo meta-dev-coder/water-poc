@@ -2,6 +2,7 @@
   "name": "my-water-poc",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/meta-dev-coder/water-poc",
   "dependencies": {
     "@bentley/icons-generic": "^1.0.34",
     "@bentley/react-scripts": "^5.0.7",
@@ -54,7 +55,9 @@
     "start": "react-scripts --max_old_space_size=4096 start",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "react-scripts --max_old_space_size=4096 test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -71,5 +74,8 @@
     "last 4 edge version",
     "not dead",
     "not <0.2%"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }
