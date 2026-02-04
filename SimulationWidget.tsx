@@ -14,6 +14,8 @@ import { EmphasizeElements } from "@itwin/core-frontend";
 
 // REPLACE THIS WITH YOUR RENDER URL
 const BACKEND_URL = "https://denver-demo.onrender.com"; 
+const SIMULATION_URL = "https://sdna.app.n8n.cloud/webhook-test/simulate-dose";
+
 
 
 const SimulationComponent = () => {
@@ -71,13 +73,19 @@ const SimulationComponent = () => {
 
   const runSimulation = async () => {
     try {
-      const res = await axios.post(`${BACKEND_URL}/simulate`, { proposed_dosage: parseFloat(dose as any) });
+
+      const res = await axios.post(SIMULATION_URL, { 
+        proposed_dosage: parseFloat(dose as any) 
+      });
+      // const res = await axios.post(`${BACKEND_URL}/simulate`, { proposed_dosage: parseFloat(dose as any) });
       const result = res.data;
       
       setSimResult(result);
+
+      console.log("Sim Result:", result);
       
       // TRIGGER THE VISUALS
-      visualizeImpact(result.status, result.predicted_effluent_turbidity);
+      visualizeImpact(result.status, result.scenario.predicted_effluent_turbidity);
 
     } catch (error) {
       console.error("Sim failed", error);
