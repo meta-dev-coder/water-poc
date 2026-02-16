@@ -14,7 +14,7 @@ import { EmphasizeElements } from "@itwin/core-frontend";
 
 // REPLACE THIS WITH YOUR RENDER URL
 const BACKEND_URL = "https://denver-demo.onrender.com"; 
-const SIMULATION_URL = "https://sdna.app.n8n.cloud/webhook-test/simulate-dose";
+const SIMULATION_URL = "https://sdna.app.n8n.cloud/webhook/simulate-dose";
 
 
 
